@@ -7,4 +7,3 @@ else
     echo $KUBE_CREDENTIALS_CERTIFICATE > $HOME/.kube/kubectl.yaml
 fi
 
-echo $(cat $HOME/.kube/kubectl.yaml)
