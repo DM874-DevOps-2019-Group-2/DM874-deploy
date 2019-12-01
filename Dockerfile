@@ -15,7 +15,7 @@ USER kubectl
 
 WORKDIR /home/kubectl
 COPY --chown=kubectl:kubectl make_credentials.sh make_credentials.sh
-COPY --chown=kubectl:kubectl push_container.sh push_container.sh
+COPY --chown=kubectl:kubectl set_container.sh set_container.sh
 
 
-ENTRYPOINT [ "sh", "make_credentials.sh", ";", "sh", "push_container.sh" ]
+ENTRYPOINT [ "sh", "make_credentials.sh", ";", "sh", "set_container.sh" ]
