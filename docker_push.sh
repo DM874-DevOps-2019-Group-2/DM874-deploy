@@ -12,5 +12,5 @@ then
 fi
 
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-docker tag kubectl:latest dm874/deploy:$TRAVIS_COMMIT
-docker push dm874/deploy:$TRAVIS_COMMIT
+docker tag kubectl:latest dm874/deploy
+docker push dm874/deploy
