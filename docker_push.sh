@@ -1,13 +1,13 @@
 #!/bin/bash
 if [ -z "$DOCKER_USERNAME" ]
 then
-	2>&1 echo "Docker username not provided"
+	>&2 echo "Docker username not provided"
 	exit 126
 fi
 
 if [ -z "$DOCKER_PASSWORD" ]
 then
-	2>&1 echo "Docker password not provided"
+	>&2 echo "Docker password not provided"
 	exit 126
 fi
 
