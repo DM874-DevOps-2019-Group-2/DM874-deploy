@@ -17,5 +17,7 @@ WORKDIR /home/kubectl
 COPY --chown=kubectl:kubectl make_credentials.sh make_credentials.sh
 COPY --chown=kubectl:kubectl set_container.sh set_container.sh
 
+RUN chmod +x make_credentials.sh
+RUN chmod +x set_container.sh
 
-ENTRYPOINT [ "sh", "make_credentials.sh", "; ", "sh", "set_container.sh", "; ", "sh" ]
+CMD ["sh", "-c", "./make_credentials.sh && ./set_container.sh"]
