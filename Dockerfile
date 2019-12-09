@@ -18,5 +18,4 @@ COPY --chown=kubectl:kubectl make_credentials.sh make_credentials.sh
 COPY --chown=kubectl:kubectl set_container.sh set_container.sh
 
 
-ENTRYPOINT [ "sh", "make_credentials.sh" ]
-CMD [ "sh", "set_container.sh" ]
+ENTRYPOINT [ "sh", "make_credentials.sh", "; ", "sh", "set_container.sh" ]
