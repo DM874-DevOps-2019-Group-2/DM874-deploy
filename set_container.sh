@@ -26,4 +26,5 @@ then
 	exit 22 
 fi
 
+echo "Running: kubectl set image statefulset/$SERVICE $CONTAINER=$DOCKER_IMAGE_SLUG:$DOCKER_IMAGE_TAG"
 kubectl set image statefulset/$SERVICE $CONTAINER=$DOCKER_IMAGE_SLUG:$DOCKER_IMAGE_TAG
