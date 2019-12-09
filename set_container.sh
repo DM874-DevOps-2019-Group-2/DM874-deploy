@@ -22,7 +22,7 @@ fi
 
 if [ -z "$CONTAINER" ]
 then
-	>&2 echo "Kubernetes"
+	>&2 echo "Kubernetes container name not set"
 	exit 22 
 fi
 
