@@ -9,7 +9,7 @@ jobs:
     script: docker build -t kubectl:latest .
 deploy:
   provider: script
-  script: sh docker_push.sh
+  script: sh build/publish.sh
   on:
     branch: master
 env:

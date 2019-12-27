@@ -1,0 +1,23 @@
+language: minimal
+services:
+- docker
+before_install:
+- docker pull dm874/deploy
+stages:
+- build-publish
+- deploy-app
+jobs:
+  include:
+  - stage: build-publish
+    script: docker build -t $LOCAL_IMAGE_NAME . && sh ci_scripts/publish_app.sh
+  - stage: deploy-app
+    script: sh ci_scripts/deploy.sh
+    on:
+      branch: master
+env:
+  global: # Enter info relevant to your project below
+    - DOCKERHUB_REPO= # eg. "dm874/auth"
+    - KUBERNETES_STS_NAME= # eg. "auth"
+    - KUBERNETES_CONTAINER_NAME= # eg. "auth-container"
+    - LOCAL_IMAGE_NAME= # eg. "auth"
+    # Make sure to add secrets: KUBERNETES_TOKEN, DOCKER_USERNAME, DOCKER_PASSWORD, easliy done via `travis encrypt VAR=VALUE --add`, when in project root

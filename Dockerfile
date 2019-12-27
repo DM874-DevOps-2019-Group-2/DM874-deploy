@@ -14,10 +14,10 @@ USER kubectl
 
 
 WORKDIR /home/kubectl
-COPY --chown=kubectl:kubectl make_credentials.sh make_credentials.sh
-COPY --chown=kubectl:kubectl set_container.sh set_container.sh
+COPY --chown=kubectl:kubectl build/make_credentials.sh make_credentials.sh
+COPY --chown=kubectl:kubectl build/update_image.sh update_image.sh
 
 RUN chmod +x make_credentials.sh
-RUN chmod +x set_container.sh
+RUN chmod +x update_image.sh
 
-CMD ["sh", "-c", "./make_credentials.sh && ./set_container.sh"]
+CMD ["sh", "-c", "./make_credentials.sh && ./update_image.sh"]
