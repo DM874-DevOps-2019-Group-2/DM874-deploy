@@ -29,4 +29,6 @@ env:
     - KUBERNETES_CONTAINER_NAME_APP= # eg. "auth-container"
     - KUBERNETES_CONTAINER_NAME_MIGRATIONS= # eg. auth-migrations-container
     - LOCAL_IMAGE_NAME= # eg. "auth"
+    - DATABASE_NAME= # name of postgres database eg. "auth" or "jolie-exec-db"
     # Make sure to add secrets: KUBERNETES_TOKEN, DOCKER_USERNAME, DOCKER_PASSWORD, easliy done via `travis encrypt VAR=VALUE --add`, when in project root
+    # IMPORTANT: You must edit the migrations.sh script to use the name of your service's database (replace "ENTER_DATABASE_NAME_HERE")
